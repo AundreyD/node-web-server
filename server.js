@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 5454;
+
 let app = express();
 
 hbs.registerPartials(__dirname + '/partials');
@@ -51,6 +53,15 @@ app.get('/about', (req, res)=>{
         pageTitle: 'About Page',
     });
 
+});
+
+app.get('/projects', (req, res)=>{
+    res.render('projects.hbs', {
+        pageTitle: 'All projects can be viewed here',
+        welcomeMessage: 'Go here to view all projects',
+        urlLink: 'http://www.github.com/AundreyD'
+    });
+
 })
 
 app.get('/bad', (req, res)=>{
@@ -63,6 +74,8 @@ app.get('/help.html',(req, res)=>{
     res.send('<h1>I figued it out</h1>')
 })
 
-app.listen(5454, ()=>{
-    console.log('server up on 5454')
+
+
+app.listen(port, ()=>{
+    console.log(`Server up on ${port}`)
 });
