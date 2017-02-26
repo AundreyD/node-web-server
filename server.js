@@ -57,7 +57,7 @@ app.get('/about', (req, res)=>{
 
 app.get('/projects', (req, res)=>{
     res.render('projects.hbs', {
-        pageTitle: 'All projects can be viewed here',
+        pageTitle: 'Projects Page',
         welcomeMessage: 'Go here to view all projects',
         urlLink: 'http://www.github.com/AundreyD'
     });
